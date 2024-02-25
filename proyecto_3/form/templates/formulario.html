@@ -1,0 +1,185 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form_DOM</title>
+  <link rel="stylesheet" href="{% static 'main.css'%}">
+  <script src="{% static 'main.js' %}" defer></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+
+<body>
+  <header class="header">
+    <h1 class="header__title">Validaciones JS</h1>
+  </header>
+  <section class="container section__card">
+    <nav class="card">
+      <p class="card__title">Los campos se validarán de la siguiente manera</p>
+      <ul class="list">
+        <li class="list__item">
+          <h4 class="bold">Ficha:</h4>
+          <p>se puede ingresar cualquier caracter</p>
+        </li>
+        <li class="list__item">
+          <h4 class="bold">Nombre:</h4>
+          <p>solo se puede ingresar letras</p>
+        </li>
+        <li class="list__item">
+          <h4 class="bold">Apellidos:</h4>
+          <p>solo se puede ingresar letras</p>
+        </li>
+        <li class="list__item">
+          <h4 class="bold">Correo:</h4>
+          <p>solo se puede ingresar Correo válido</p>
+        </li>
+        <li class="list__item">
+          <h4 class="bold">Teléfono:</h4>
+          <p>solo se puede ingresar números</p>
+        </li>
+        <li class="list__item">
+          <h4 class="bold">Género:</h4>
+          <p>solo se puede seleccionar un Género</p>
+        </li>
+        <li class="list__item">
+          <h4 class="bold">Ciudad:</h4>
+          <p>solo se puede seleccionar una Ciudad</p>
+        </li>
+        <li class="list__item">
+          <h4 class="bold">Habilidades:</h4>
+          <p>solo se puede seleccionar como mínimo 3 Habilidades</p>
+        </li>
+      </ul>
+    </nav>
+  </section>
+  <main>
+    <section class="container section__card">
+      <form action="index.html" class="card" autocomplete="on" novalidate>
+        <h1 class="card__title">Formulario</h1>
+
+        <div class="control">
+          <label for="Numero_de_Ficha">Número de Ficha</label>
+          <input type="text" id="Numero_de_Ficha" name="Numero_de_Ficha" class="control__input" maxlength="32"
+            pattern="[A-Za-z]{1,32}" required autocomplete="off" value="">
+        </div>
+
+        <div class="control">
+          <label for="Nombre">Nombre</label>
+          <input type="text" id="Nombre" name="Nombre" pattern="[A-Za-z]+" class="control__input" value="" required
+            autocomplete="off">
+
+        </div>
+
+        <div class="control">
+          <label for="Apellidos">Apellidos</label>
+          <input type="text" id="Apellidos" name="Apellidos" pattern="[A-Za-z]+" class="control__input" required
+            autocomplete="off">
+
+        </div>
+
+        <div class="control">
+          <label for="email">Correo</label>
+          <input type="email" id="email" name="email" class="control__input" required autocomplete="off">
+
+        </div>
+
+        <div class="control">
+          <label for="telefono">Teléfono</label>
+          <input maxlength="10" autocomplete="off" type="tel" name="telefono" pattern="[0-9]{10}" maxlength="10"
+            id="telefono" class="control__input" required>
+
+        </div>
+        <div class="control control--row padding-top-8">
+          <label for="Hombre">Hombre</label>
+          <input type="radio" name="Genero" id="Hombre" value="Hombre" required>
+          <label for="Mujer">Mujer</label>
+          <input type="radio" name="Genero" id="Mujer" value="Mujer">
+          <label for="Otro">Otro</label>
+          <input type="radio" name="Genero" id="Otro" value="Otro">
+        </div>
+
+        <div class="control padding-top-8">
+          <label for="ciudad">Ciudad</label>
+          <select class="control__input" id="ciudada" name="Ciudad" required>
+            <option value="">-</option>
+            <option value="Arauca">Arauca</option>
+            <option value="Armenia">Armenia</option>
+            <option value="Barranquilla">Barranquilla</option>
+            <option value="Bogotá">Bogotá</option>
+            <option value="Bucaramanga">Bucaramanga</option>
+            <option value="Cali">Cali</option>
+            <option value="Cartagena">Cartagena</option>
+            <option value="Cúcuta">Cúcuta</option>
+            <option value="Florencia">Florencia</option>
+            <option value="Ibagué">Ibagué</option>
+            <option value="Leticia">Leticia</option>
+            <option value="Manizales">Manizales</option>
+            <option value="Medellín">Medellín</option>
+            <option value="Mitú">Mitú</option>
+            <option value="Mocoa">Mocoa</option>
+            <option value="Montería">Montería</option>
+            <option value="Neiva">Neiva</option>
+            <option value="Pasto">Pasto</option>
+            <option value="Pereira">Pereira</option>
+            <option value="Popayán">Popayán</option>
+            <option value="Puerto Carreño">Puerto Carreño</option>
+            <option value="Puerto Inírida">Puerto Inírida</option>
+            <option value="Quibdó">Quibdó</option>
+            <option value="Riohacha">Riohacha</option>
+            <option value="San Andrés">San Andrés</option>
+            <option value="San José del Guaviare">San José del Guaviare</option>
+            <option value="Santa Marta">Santa Marta</option>
+            <option value="Sincelejo">Sincelejo</option>
+            <option value="Tunja">Tunja</option>
+            <option value="Valledupar">Valledupar</option>
+            <option value="Villavicencio">Villavicencio</option>
+            <option value="Yopal">Yopal</option>
+          </select>
+        </div>
+        <div class="control padding-top-8">
+          <p>Seleccione minimo 3 habilidades</p>
+          <div>
+            <input type="checkbox" id="html" value="html">
+            <label for="html">HTML</label>
+          </div>
+          <div>
+            <input type="checkbox" id="css" value="css">
+            <label for="css">CSS</label>
+          </div>
+          <div>
+            <input type="checkbox" id="javascript" value="javascript">
+            <label for="javascrit">Javascript</label>
+          </div>
+          <div>
+            <input type="checkbox" id="php" value="php">
+            <label for="php">PHP</label>
+          </div>
+          <div>
+            <input type="checkbox" id="java" value="java">
+            <label for="java">Java</label>
+          </div>
+          <div>
+            <input type="checkbox" id="sql" value="sql">
+            <label for="sql">SQL</label>
+          </div>
+          <div>
+            <input type="checkbox" id="uml" value="uml">
+            <label for="uml">UML</label>
+          </div>
+        </div>
+
+        <div class="d-flex d-center padding-top-8">
+          <button type="submit" id="submitBtn" class="button button--blue">Validar <i class="bi bi-send"></i></button>
+        </div>
+      </form>
+    </section>
+    <footer>
+    </footer>
+  </main>
+</body>
+
+</html>
