@@ -1,8 +1,6 @@
 {% load static %}
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -77,34 +75,34 @@
         <div class="control">
           <label for="Apellidos">Apellidos</label>
           <input type="text" id="Apellidos" name="Apellidos" pattern="[A-Za-z]+" class="control__input" required
-            autocomplete="off">
+            autocomplete="off" value="">
 
         </div>
 
         <div class="control">
           <label for="email">Correo</label>
-          <input type="email" id="email" name="email" class="control__input" required autocomplete="off">
+          <input type="email" id="email" name="email" class="control__input" required autocomplete="off"value="">
 
         </div>
 
         <div class="control">
           <label for="telefono">Teléfono</label>
           <input maxlength="10" autocomplete="off" type="tel" name="telefono" pattern="[0-9]{10}" maxlength="10"
-            id="telefono" class="control__input" required>
+            id="telefono" class="control__input" required value="">
 
         </div>
         <div class="control control--row padding-top-8">
           <label for="Hombre">Hombre</label>
-          <input type="radio" name="Genero" id="Hombre" value="Hombre" required>
+          <input type="radio" name="Genero" id="hombre" value="hombre" required>
           <label for="Mujer">Mujer</label>
-          <input type="radio" name="Genero" id="Mujer" value="Mujer">
+          <input type="radio" name="Genero" id="mujer" value="mujer">
           <label for="Otro">Otro</label>
-          <input type="radio" name="Genero" id="Otro" value="Otro">
+          <input type="radio" name="Genero" id="otro" value="otro">
         </div>
 
         <div class="control padding-top-8">
           <label for="ciudad">Ciudad</label>
-          <select class="control__input" id="ciudada" name="Ciudad" required>
+          <select class="control__input" id="ciudad" name="Ciudad" required>
             <option value="">-</option>
             <option value="Arauca">Arauca</option>
             <option value="Armenia">Armenia</option>
