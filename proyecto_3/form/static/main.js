@@ -4,108 +4,110 @@ const last_name = document.getElementById("Apellidos");
 const correo = document.getElementById("email");
 const phone = document.getElementById("telefono");
 
-function validarficha(valor) {
-  const paraficha = /^[A-Za-z]{3}_[0-9]{5}$/;
-  if (!paraficha.test(valor)) {
-    alert(
-      "Ingrese un valor válido para el número de ficha solo letras, máximo 10 caracteres."
-    );
+function validarFicha(e) {
+  const valor = e.target.value;
+
+  if (valor.trim() === "") { // Verifica si el valor está vacío
+    bordeRojo(ficha);
   } else {
-    alert("¡Correcto!");
+    if (valor.length > 9) {
+      e.target.value = valor.slice(0, 9);
+    }
+    if (!/^[A-Za-z0-9_]{0,3}$/.test(valor.slice(0, 3))) {
+      e.target.value = valor.slice(0, 3);
+    }
+    if (valor.length > 3 && valor.indexOf('_') !== 3) {
+      e.target.value = valor.slice(0, 3) + '_' + valor.slice(3);
+    }
+    if (!/^[A-Za-z]{0,3}_[0-9]{0,5}$/.test(valor)) {
+      bordeRojo(ficha);
+    } else {
+      bordeVerde(ficha);
+    }
   }
 }
 
-function validarname(valor) {
-  const paraname = /^[A-Za-z]{50}$/;
-  if (!paraname.test(valor)) {
-    alert(
-      "ingrese un su nombre maximo 50 letras"
-    );
+
+function onlyAlphabets(e) {
+  var char = e.key;
+  if (!/[a-zA-Z]/.test(char)) {
+    e.preventDefault();
+    bordeRojo(e.target);
   } else {
-    alert("¡Correcto!");
+    if (e.target.value.trim() === "") {
+      bordeRojo(e.target);
+    } else {
+      bordeVerde(e.target);
+    }
   }
 }
 
-function validarlast(valor) {
-  const paralastname = /^[A-Za-z]{50}$/;
-  if (!paralastname.test(valor)) {
-    alert(
-      "ingrese un su apellido maximo 50 letras"
-    );
+function restrictNames(e) {
+  var char = e.key;
+  var inputValue = e.target.value + char;
+  if (e.target.value.trim() === "") {
+    bordeRojo(e.target);
   } else {
-    alert("¡Correcto!");
+    if (!/^[a-zA-Z\s]*$/.test(inputValue) || inputValue.length > 40) {
+      e.preventDefault();
+      bordeRojo(e.target);
+    } else {
+      bordeVerde(e.target);
+    }
   }
 }
+
 
 function restrictNumber(e) {
   var newValue = this.value.replace(new RegExp(/[^\d]/, 'ig'), "");
   this.value = newValue;
-}
-
-
-function validarEmail(valor) {
-  const paraemail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
-  if (!paraemail.test(valor)) {
-    alert(
-      "ingrese un su apellido maximo 50 letras"
-    );
+  if (newValue === '') {
+    bordeRojo(this);
   } else {
-    alert("¡Correcto!");
+    bordeVerde(this);
   }
-
 }
 
-phone.addEventListener('input', restrictNumber);
-ficha.addEventListener("blur", () => {
-  validarficha(ficha.value);
-});
+function validarEmail(e) {
+  const valor = e.target.value;
+  const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
 
-firs_name.addEventListener("blur", () => {
-  validarname(firs_name.value);
-});
-
-last_name.addEventListener("blur", () => {
-  validarname(last_name.value);
-});
-
-
-
-
-`
-const bordeVerde = function (valor) {
-  if (valor.classList.contains("borde-rojo")) {
-    valor.classList.remove("borde-rojo");
+  if (valor.trim() === "") { // Verifica si el valor está vacío
+    bordeRojo(email);
+  } else {
+    if (!emailRegex.test(valor)) {
+      bordeRojo(email);
+    } else {
+      bordeVerde(email);
+    }
   }
-  valor.classList.add("borde-verde");
 }
 
-const bordeRojo = function (valor) {
-  if (valor.classList.contains("borde-verde")) {
-    valor.classList.remove("borde-verde");
-  }
-  valor.classList.add("borde-rojo");
+
+
+
+
+
+correo.addEventListener("input", validarEmail);
+firs_name.addEventListener("keydown", onlyAlphabets);
+last_name.addEventListener("keydown", onlyAlphabets);
+firs_name.addEventListener("keydown", restrictNames);
+last_name.addEventListener("keydown", restrictNames);
+phone.addEventListener("input", restrictNumber);
+ficha.addEventListener("input", validarFicha);
+
+
+function bordeVerde(elemento) {
+  elemento.classList.remove("borde-rojo");
+  elemento.classList.add("borde-verde");
 }
-`
 
-// nombre.addEventListener(keypress,letras)
+function bordeRojo(elemento) {
+  elemento.classList.remove("borde-verde");
+  elemento.classList.add("borde-rojo");
+}
 
 
-// function onlyAlphabets(e, t) {
-//   try {
-//     if (window.event) {
-//       var charCode = window.event.keyCode;
-//     }
-//     else if (e) {
-//       var charCode = e.which;
-//     }
-//     else { return true; }
-//     if ((charCode > 64 && charCode < 91) || (charCode > 96 && charCode < 123))
-//       return true;
-//     else
-//       return false;
-//   }
-//   catch (err) {
-//     alert(err.Description);
-//   }
-// }
+
+
 // name
