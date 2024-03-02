@@ -1,14 +1,39 @@
 {% extends "layouts/app.html" %}
-{% block content %} 
+{% load static %}
+{% block content %}
 <section class="portada">
   <div class="contenedor saludo">
-    <h4 class="saludo__titulo">
-      Lorem ipsum
-    </h4>
-    <p class="saludo__parrafo">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi eos deserunt commodi asperiores et eveniet in nam,
-      velit incidunt cumque optio excepturi provident quisquam nihil quam, temporibus aliquam, sequi id?
-    </p>
+    <div class="profile">
+      <h2>name developer :#############</h2>
+      <img src={% static 'images/hola.jpg' %} alt="Logo">
+    </div>
+    <div class="saludo__parrafo">
+      <div class="Habilidades">
+        <h3>Habilidades :</h3>
+        <p>Lorem ipsum dolor sit amet</p>
+        <p>Lorem ipsum dolor sit amet</p>
+        <p>Lorem ipsum dolor sit amet</p>
+        <p>Lorem ipsum dolor sit amet</p>
+
+      </div>
+      <div class="datos">
+        <h3>datos personales :</h3>
+        <p>Lorem ipsum dolor sit amet</p>
+        <p>Lorem ipsum dolor sit amet</p>
+        <p>Lorem ipsum dolor sit amet</p>
+        <p>Lorem ipsum dolor sit amet</p>
+
+      </div>
+      <div class="contacto">
+        <h3>contacto :</h3>
+        <p>Lorem ipsum dolor sit amet</p>
+        <p>Lorem ipsum dolor sit amet</p>
+        <p>Lorem ipsum dolor sit amet</p>
+        <p>Lorem ipsum dolor sit amet</p>
+
+      </div>
+    </div>
   </div>
 </section>
 {% endblock %}
+class="saludo__titulo"
