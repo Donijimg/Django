@@ -2,7 +2,7 @@ const ficha = document.getElementById("Numero_de_Ficha");
 const firs_name = document.getElementById("Nombre");
 const last_name = document.getElementById("Apellidos");
 const correo = document.getElementById("email");
-const phone = document.getElementById("telefono");
+const phone = document.getElementById("telefono"); z
 
 function validarFicha(e) {
   const valor = e.target.value;
