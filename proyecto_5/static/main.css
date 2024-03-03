@@ -45,7 +45,7 @@ header{
   text-decoration: none;
   color: var(--color--blanco);
   font-size: 22px;
-  font-family: "angine";
+  font-family: "Chopin";
 }
 
 .menu__link--active{
@@ -53,8 +53,8 @@ header{
 }
 
 @font-face {
-  font-family: "angine";
-  src: url("angine.ttf");
+  font-family: "Chopin";
+  src: url("Chopin.ttf");
 }
 
 /**
@@ -93,4 +93,49 @@ flex: 1;
 .bi-folder-fill::before{
 color: var(--color-negro);
 font-size: 50px;
+}
+
+.block__total{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 12px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: calc(97vh - var(--header));
+  align-items: center;
+  gap: 2rem;
+
+}
+.block__medium{
+  display: flex;
+  gap: 2rem;
+    
+}
+.block__small{
+  background-color: cornflowerblue;
+  width: 180px;
+  height: 300px;
+  border-radius: 20px;
+
+}
+.miniimg{
+    height: 50%;
+		width: 100%;
+		object-fit: cover;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px ;
+}
+.footer__block{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.block__L{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 2rem;
 }
