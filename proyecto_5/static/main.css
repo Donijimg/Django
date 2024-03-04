@@ -101,7 +101,10 @@ font-size: 50px;
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 12px;
-  height: calc(97vh - var(--header));
+  height: calc(100vh - var(--header)); /* Ajusta la altura restando la altura del header */
+  display: flex;
+  flex-direction: column;
+ 
 
 }
 .block__medium{
@@ -110,34 +113,53 @@ font-size: 50px;
      */
 }
 .block__small{
-  display: flex;
-  flex-direction: column;
+   flex: 1 0 50%;
+max-width: calc(250px - 1rem); /* Para que haya espacio entre los elementos */
+  /* Ajusta el ancho según tus necesidades */
+  background-color: #ffffff; /* Color de fondo de la tarjeta */
+  border-radius: 10px; /* Borde redondeado */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra de la tarjeta */
+  padding: 1rem; /* Espaciado interno */
+
+
+
   /* background-color:var(--gray-color);
   width: 200px;
   min-height: 200px;
   border-radius: 20px; */
 }
+@media screen and (max-width: 768px) {
+  .block__small {
+    flex-basis: calc(50% - 1rem); /* Cambia el ancho base a 50% para que se ajuste a dos elementos por fila en pantallas más pequeñas */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .block__small {
+    flex-basis: calc(100% - 1rem); /* Cambia el ancho base a 100% para que los elementos se apilen en una sola columna en pantallas muy pequeñas */
+  }
+}
+
 
 
 .miniimg{
-  max-width: 350px;
-    /* height: 50%;
+     height: 50%;
 		width: 100%;
 		object-fit: cover;
     border-top-left-radius: 20px;
-    border-top-right-radius: 20px ; */
+    border-top-right-radius: 20px ;
 }
 .footer__block{
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
+    text-align: -webkit-center;
 }
 
 .block__L{
+
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
   gap: 2rem;
+  margin: 0 auto;
 }
 
 .teximg{
