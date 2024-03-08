@@ -2,12 +2,12 @@ const ficha = document.getElementById("Numero_de_Ficha");
 const firs_name = document.getElementById("Nombre");
 const last_name = document.getElementById("Apellidos");
 const correo = document.getElementById("email");
-const phone = document.getElementById("telefono"); z
+const phone = document.getElementById("telefono");
 
 function validarFicha(e) {
   const valor = e.target.value;
 
-  if (valor.trim() === "") { // Verifica si el valor está vacío
+  if (valor.trim() === "") {
     bordeRojo(ficha);
   } else {
     if (valor.length > 9) {
@@ -72,7 +72,7 @@ function validarEmail(e) {
   const valor = e.target.value;
   const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
 
-  if (valor.trim() === "") { // Verifica si el valor está vacío
+  if (valor.trim() === "") {
     bordeRojo(email);
   } else {
     if (!emailRegex.test(valor)) {
@@ -108,6 +108,23 @@ function bordeRojo(elemento) {
 }
 
 
+// <script>
+//   function validarFormulario() {
+//     var opciones = document.getElementsByName('opcion');
+//   var seleccionados = 0;
 
+//   for (var i = 0; i < opciones.length; i++) {
+//       if (opciones[i].checked) {
+//     seleccionados++;
+//       }
+//     }
 
-// name
+//   if (seleccionados !== 4 && seleccionados !== 1) {
+//       var mensaje = seleccionados === 1 ? 'Por favor seleccione una opción.' : 'Por favor seleccione exactamente tres opciones.';
+//   alert('Campo obligatorio. ' + mensaje);
+//   return false;
+//     }
+
+//   return true;
+//   }
+// </script>
