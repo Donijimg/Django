@@ -5,3 +5,6 @@ def inicio(request):
 
 def portafolio(request):
   return render(request, 'portafolio.html', {})
+
+def contacto (request):
+  return render(request, 'contacto.html', {})
